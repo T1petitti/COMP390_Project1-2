@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="600e99b5-c518-4d9e-8d96-8fd1765379b2" name="Changes" comment="" />
+    <list default="true" id="600e99b5-c518-4d9e-8d96-8fd1765379b2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,16 +31,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.COMP390_Project1-1.executor&quot;: &quot;Run&quot;,
-    &quot;Python.COMP390_Project1-2.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/tylerpetitti/Library/CloudStorage/OneDrive-BridgewaterStateUniversity/PYTHON/Software_Engineering/Project1-1&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.tabs&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.COMP390_Project1-1.executor": "Run",
+    "Python.COMP390_Project1-2.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "temp",
+    "last_opened_file_path": "/Users/tylerpetitti/Library/CloudStorage/OneDrive-BridgewaterStateUniversity/PYTHON/Software_Engineering/Project1-1",
+    "settings.editor.selected.configurable": "editor.preferences.tabs"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="COMP390_Project1-2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="Project1-1" />
