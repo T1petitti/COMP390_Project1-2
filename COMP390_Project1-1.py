@@ -93,7 +93,7 @@ def extract_data_from_file(file_obj, filter_mode, lower_limit, upper_limit, data
             continue
         # IF DATA MATCHES UPPER AND LOWER LIMIT, LABEL EACH DATA VALUE IN LINE WITH FUNCTION AND ADD TO LIST
         if float(lower_limit) <= float(desired_data) <= float(upper_limit):
-            labelled_line = meteor_data_class.meteordataentry(line)
+            labelled_line = meteor_data_class.label_meteor_data(line)
             data_holder.append(labelled_line)
 
     return data_holder
