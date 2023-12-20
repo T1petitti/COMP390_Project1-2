@@ -101,13 +101,24 @@ def extract_data_from_file(file_obj, filter_mode, lower_limit, upper_limit, data
 
 def create_table(data_filter, data_holder):
     # CREATE TABLE AND SHOWCASE BY NAME AND DESIRED DATA
-    print(f'\n{"":<5}{"NAME":<24}{data_filter:<20}')
-    print("=======================================")
     # ITERATE OVER LIST OF LABELLED LISTS THAT MATCH DATA REQUIREMENTS
+    header_printed = False
     for line in data_holder:
-        print(
-            # EXTRACT AND PRINT THE NAME AND DESIRED DATA VALUE INTO TABLE
-            f'{data_holder.index(line) + 1:<5}{line.get("Name"):<24}{line.get(f"{data_filter.lower()}"):<20}')
+        new_formatted_line = f'{data_holder.index(line) + 1:<5}'
+        new_heading = f'{"":<5}'
+        dashes = "====="
+        for label in line:
+            old_formatted_line = new_formatted_line
+            new_formatted_line = f'{old_formatted_line}{(line.get(label)):<24}'
+            old_heading = new_heading
+            new_heading = old_heading + f'{label:<24}'
+            dashes = dashes + "======================="
+        # EXTRACT AND PRINT THE NAME AND DESIRED DATA VALUE INTO TABLE
+        if (header_printed is False):
+            print(f'{new_heading}')
+            print(dashes)
+        header_printed = True
+        print(f'{new_formatted_line}')
 
 
 def main():

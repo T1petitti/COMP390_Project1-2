@@ -1,8 +1,7 @@
 def label_meteor_data(meteordata_list):
     # data labels
-    data_field_labels = ["Name", "id", "nametype", "recclass", "mass (g)", "fall", "year", "reclat", "reclong",
-                         "GeoLocation",
-                         "States", "Counties"]
+    data_field_labels = ["name", "id", "nametype", "recclass", "mass (g)", "fall", "year", "reclat", "reclong",
+                         "GeoLocation", "States", "Counties"]
     labelled_dict = {}
     for label in data_field_labels:
         # give each label in data_fields a meteorData value in the same index.
