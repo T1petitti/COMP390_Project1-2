@@ -79,46 +79,47 @@ def find_upper_limits(data_filter):
     return upper_limit
 
 
-def extract_data_from_file(file_obj, filter_mode, lower_limit, upper_limit, data_holder):
+def extract_data_from_file(file_obj, filter_mode, lower_limit, upper_limit):
     # ITERATE OVER FILE, LINE BY LINE AND EXTRACT LINES THAT MATCH DATA REQUIREMENTS
     desired_data = ""
+    test_list = []
+    header_got = False
     for line in file_obj:
         line = line.strip('\n').split('\t')
-        # ONLY LOOK FOR DATA BASED ON FILTER
-        if filter_mode == "1":
-            desired_data = line[4]
-        elif filter_mode == "2":
-            desired_data = line[6]
-        if desired_data == '':
-            continue
-        # IF DATA MATCHES UPPER AND LOWER LIMIT, LABEL EACH DATA VALUE IN LINE WITH FUNCTION AND ADD TO LIST
-        if float(lower_limit) <= float(desired_data) <= float(upper_limit):
-            labelled_line = meteor_data_class.label_meteor_data(line)
-            data_holder.append(labelled_line)
+        if header_got is True:
+            # ONLY LOOK FOR DATA BASED ON FILTER
+            if filter_mode == "1":
+                desired_data = line[4]
+            elif filter_mode == "2":
+                desired_data = line[6]
+            if desired_data == '':
+                continue
+            # IF DATA MATCHES UPPER AND LOWER LIMIT, LABEL EACH DATA VALUE IN LINE WITH FUNCTION AND ADD TO LIST
+            if float(lower_limit) <= float(desired_data) <= float(upper_limit):
+                test_list.append(line)
+        else:
+            test_list.append(line)
+            header_got = True
+    return test_list
 
-    return data_holder
 
-
-def create_table(data_filter, data_holder):
+def create_table(test_list):
     # CREATE TABLE AND SHOWCASE BY NAME AND DESIRED DATA
     # ITERATE OVER LIST OF LABELLED LISTS THAT MATCH DATA REQUIREMENTS
     header_printed = False
-    for line in data_holder:
-        new_formatted_line = f'{data_holder.index(line) + 1:<5}'
-        new_heading = f'{"":<5}'
+    new_formatted_line = f'{"":<5}'
+    for line in test_list:
         dashes = "====="
         for label in line:
             old_formatted_line = new_formatted_line
-            new_formatted_line = f'{old_formatted_line}{(line.get(label)):<24}'
-            old_heading = new_heading
-            new_heading = old_heading + f'{label:<24}'
+            new_formatted_line = f'{old_formatted_line}{label:<24}'
             dashes = dashes + "======================="
         # EXTRACT AND PRINT THE NAME AND DESIRED DATA VALUE INTO TABLE
-        if (header_printed is False):
-            print(f'{new_heading}')
+        print(f'{new_formatted_line}')
+        if header_printed is False:
             print(dashes)
         header_printed = True
-        print(f'{new_formatted_line}')
+        new_formatted_line = f'{test_list.index(line) + 1:<5}'
 
 
 def main():
@@ -130,7 +131,6 @@ def main():
     # TODO check for quit
     confirmation2(file_mode)
     file_obj = create_file(file_name, file_mode)
-    file_obj.readline()
     filter_mode = get_filter_mode()
     # TODO check for quit
     data_filter = create_filter_label(filter_mode)
@@ -138,9 +138,8 @@ def main():
     # TODO check for quit
     upper_limit = find_upper_limits(data_filter)
     # TODO check for quit
-    data_holder = []
-    data_holder = extract_data_from_file(file_obj, filter_mode, lower_limit, upper_limit, data_holder)
-    create_table(data_filter, data_holder)
+    data_holder = extract_data_from_file(file_obj, filter_mode, lower_limit, upper_limit)
+    create_table(data_holder)
     file_obj.close()
 
 
