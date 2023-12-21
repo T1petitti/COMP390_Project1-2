@@ -11,6 +11,7 @@ def welcome_message():
 def get_user_input(prompt, quit_command):
     user_input = input(prompt)
     if user_input == quit_command:
+        print("\nThe program is now exiting... GOODBYE!")
         exit()
     return user_input
 
