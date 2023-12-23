@@ -14,8 +14,8 @@ def main():
     main_program.get_file_input_read_mode()
     main_program.get_attribute_input()
     main_program.get_filter_range()
-    main_program.run_filter_process() #TODO
-    main_program.get_output_user_option() #TODO
+    main_program.run_filter_process()
+    main_program.get_output_user_option()
 
 
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-import output
+import output_formatting_class
 from input_formatting_class import *
 from meteor_file_handler import MeteorFileHandler
 from attribute_menu import AttributeFilter
@@ -15,44 +15,43 @@ class MainProgram:
         # Initialize instance variables
         self.file_name = ""
         self.file_mode = ""
-        self.file_obj = None
+        self.meteor_class_obj = None
         self.attribute_obj = None
         self.lower_limit = ""
         self.upper_limit = ""
         self.filtered_data = []
+        self.header = []
+        self.user_input = ""
 
     def get_file_input_read_mode(self):
-        # TODO check for right answers
-        print_filename_prompt()
-        self.file_name = get_user_input("Enter ""\">q\" or \">Q\" to quit: ", ">q")
-        confirmation_input_message("Target file: ", self.file_name)
-        # TODO check for right answers
-        print_filemode_prompt()
-        self.file_mode = get_user_input("Mode -> ", ">q")
-        confirmation_input_message("File mode: ", self.file_name)
-        self.file_obj = MeteorFileHandler(self.file_name, self.file_mode)
+        self.file_name = check_file_name_input()
+        self.file_mode = check_file_mode_input()
 
     def get_attribute_input(self):
-        # TODO check for right answers
-        print_attribute_prompt()
-        filter_mode = get_user_input(">>", "3")
+        filter_mode = check_attribute_input()
         self.attribute_obj = AttributeFilter(filter_mode)
 
     def get_filter_range(self):
-        self.lower_limit = get_user_input(
-            f"Enter the LOWER limit (inclusive) for the meteor's {self.attribute_obj.get_filter_label()} (\">Q\" to "
-            f"QUIT): ", ">Q")
-        self.upper_limit = get_user_input(
-            f"Enter the UPPER limit (inclusive) for the meteor's {self.attribute_obj.get_filter_label()} (\">Q\" to "
-            f"QUIT): ", ">Q")
+        print("")
+        check_lower_limit_input(self, self.attribute_obj)
+        check_upper_limit_input(self, self.attribute_obj)
+        print("")
 
     def run_filter_process(self):
-        for line in self.file_obj:
+        MeteorFileHandler.create_meteor_file_obj(self, self.file_name, self.file_mode)
+        self.header = MeteorFileHandler.strip_header(self)
+        formatted_lines = MeteorFileHandler.convert_file_lines_to_lists(self)
+        for line in formatted_lines:
             desired_data = line[self.attribute_obj.filter_index]
             if desired_data and float(self.lower_limit) <= float(desired_data) <= float(self.upper_limit):
                 self.filtered_data.append(line)
 
     def get_output_user_option(self):
-        output.print_header(self)
-        output.create_table()
+        output_results = check_output_results_input()
+        if output_results == "1":
+            output_formatting_class.print_header(self.header)
+            output_formatting_class.create_table(self.filtered_data)
+        #if output_results == "2":
+
+
 
