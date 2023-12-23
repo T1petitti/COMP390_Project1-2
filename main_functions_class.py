@@ -1,3 +1,4 @@
+import output
 from input_formatting_class import *
 from meteor_file_handler import MeteorFileHandler
 from attribute_menu import AttributeFilter
@@ -18,6 +19,7 @@ class MainProgram:
         self.attribute_obj = None
         self.lower_limit = ""
         self.upper_limit = ""
+        self.filtered_data = []
 
     def get_file_input_read_mode(self):
         # TODO check for right answers
@@ -45,7 +47,12 @@ class MainProgram:
             f"QUIT): ", ">Q")
 
     def run_filter_process(self):
-        return
+        for line in self.file_obj:
+            desired_data = line[self.attribute_obj.filter_index]
+            if desired_data and float(self.lower_limit) <= float(desired_data) <= float(self.upper_limit):
+                self.filtered_data.append(line)
 
     def get_output_user_option(self):
-        return
+        output.print_header(self)
+        output.create_table()
+

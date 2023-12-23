@@ -5,14 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="600e99b5-c518-4d9e-8d96-8fd1765379b2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MeteorFileHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/meteor_file_handler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_program_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_functions_class.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/output.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/COMP390_Project1-2.py" beforeDir="false" afterPath="$PROJECT_DIR$/COMP390_Project1-2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/attribute_menu.py" beforeDir="false" afterPath="$PROJECT_DIR$/attribute_menu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_functions_class.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_functions_class.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meteor_file_handler.py" beforeDir="false" afterPath="$PROJECT_DIR$/meteor_file_handler.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -91,5 +100,16 @@
       <updated>1697445088856</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
