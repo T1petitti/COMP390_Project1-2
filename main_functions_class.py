@@ -1,5 +1,5 @@
 from input_formatting_class import *
-from MeteorFileHandler import MeteorFileHandler
+from meteor_file_handler import MeteorFileHandler
 from attribute_menu import AttributeFilter
 
 """

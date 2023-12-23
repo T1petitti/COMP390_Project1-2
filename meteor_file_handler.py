@@ -9,7 +9,6 @@ class MeteorFileHandler:
     def __init__(self, file_name, file_mode):
         self.file_name = file_name
         self.file_mode = file_mode
-        self.file_obj = None
         self.header = []
 
     def create_file_obj(self):
