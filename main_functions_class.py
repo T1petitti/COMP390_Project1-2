@@ -1,4 +1,4 @@
-import output_formatting_class
+from output_formatting_class import *
 from input_formatting_class import *
 from meteor_file_handler import MeteorFileHandler
 from attribute_menu import AttributeFilter
@@ -21,7 +21,6 @@ class MainProgram:
         self.upper_limit = ""
         self.filtered_data = []
         self.header = []
-        self.user_input = ""
 
     def get_file_input_read_mode(self):
         self.file_name = check_file_name_input()
@@ -49,9 +48,12 @@ class MainProgram:
     def get_output_user_option(self):
         output_results = check_output_results_input()
         if output_results == "1":
-            output_formatting_class.print_header(self.header)
-            output_formatting_class.create_table(self.filtered_data)
-        #if output_results == "2":
+            write_header_to_terminal(self.header)
+            write_data_to_terminal(self.filtered_data)
+        if output_results == "2":
+            write_data_to_text(self.header,self.filtered_data)
+        if output_results == "3":
+            write_filtered_results_to_excel_file(self.header, self.filtered_data)
 
 
 
