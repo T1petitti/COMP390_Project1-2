@@ -1,10 +1,15 @@
+
+""" This module contains functions for formatting user input and displaying prompts and messages in the terminal. """
+
 import os
 
 def input_formatting(self):
+    """ Initialize lower and upper limit attributes. """
     self.lower_limit = ""
     self.upper_limit = ""
 
 def check_file_name_input():
+    """ Prompt the user for a file name, check its validity, and return it. """
     while True:
         print_filename_prompt()
         file_name = input("Enter \">q\" or \">Q\" to quit: ")
@@ -18,6 +23,7 @@ def check_file_name_input():
     return file_name
 
 def check_file_mode_input():
+    """ Prompt the user for a file mode, check its validity, and return it. """
     while True:
         print_filemode_prompt()
         file_mode = input("Mode -> ")
@@ -31,6 +37,7 @@ def check_file_mode_input():
     return file_mode
 
 def check_attribute_input():
+    """ Prompt the user for an attribute input, either mass or year, check its validity, and return it. """
     while True:
         print_attribute_prompt()
         filter_mode = input(">> ")
@@ -39,11 +46,12 @@ def check_attribute_input():
         if filter_mode == '3':
             print("\nThe program is now exiting... GOODBYE!")
             exit()
-        else: print(f'ERROR: TARGET FILE MODE {filter_mode} IS NOT VALID!')
+        else: print(f'ERROR: Invalid menu choice {filter_mode}')
     return filter_mode
 
 def check_lower_limit_input(self, attribute_obj):
-    while True:
+    """ Prompt the user for a lower limit on the attribute, check its validity, and return it. """
+    while True and attribute_obj is not None:
         self.lower_limit = input(f"Enter the LOWER limit (inclusive) for the meteor's "f""
                                        f"{attribute_obj.get_filter_label()} (\">Q\" to "f"QUIT): ")
         try:
@@ -52,11 +60,12 @@ def check_lower_limit_input(self, attribute_obj):
             if self.lower_limit == '>Q':
                 print("\nThe program is now exiting... GOODBYE!")
                 exit()
-        print(f'ERROR: INVALID RANGE {self.lower_limit}')
+        print(f'ERROR: Invalid range limit {self.lower_limit}')
     return self.lower_limit
 
 def check_upper_limit_input(self, attribute_obj):
-    while True:
+    """ Prompt the user for an upper limit on the attribute, check its validity, and return it. """
+    while True and attribute_obj is not None:
         self.upper_limit = input(f"Enter the UPPER limit (inclusive) for the meteor's "
                                  f"{attribute_obj.get_filter_label()} (\">Q\" to "f"QUIT): ")
         try:
@@ -65,10 +74,12 @@ def check_upper_limit_input(self, attribute_obj):
             if self.upper_limit == '>Q':
                 print("\nThe program is now exiting... GOODBYE!")
                 exit()
-        print(f'ERROR: INVALID RANGE {self.upper_limit}')
+        print(f'ERROR: Invalid range limit {self.upper_limit}')
     return self.upper_limit
 
 def check_output_results_input():
+    """ Prompt the user for different output options; terminal, txt file, or Excel file, then check its validity,
+    and return it. """
     while True:
         print_output_results_prompt()
         output_results = input(f">> ")
@@ -79,6 +90,7 @@ def check_output_results_input():
     return output_results
 
 def confirmation_input_message(message, user_input):
+    """ Print confirmation message based on user_input """
     # CONFIRMATION
     print(f"\n"
           f"{message}{user_input}"
@@ -86,11 +98,12 @@ def confirmation_input_message(message, user_input):
 
 
 def print_filename_prompt():
+    """ function for printing filename prompt """
     print("Enter a valid file name (ex. \"file_name.txt\") with its file extension (if applicable) |or|")
 
 
 def print_filemode_prompt():
-    # FILE MODE INPUT
+    """ function for printing filemode prompt """
     print("What mode would you like to open the file with?\n"
           "\"r\" - open for reading (default)\n"
           "\"w\" - open for writing. truncating the file first (WARNING: this mode will delete the contents of an "
@@ -101,12 +114,14 @@ def print_filemode_prompt():
 
 
 def print_attribute_prompt():
+    """ function for printing attribute prompt """
     print("What attribute would you like to filter the data on?\n"
           "1. Meteor MASS (g)\n"
           "2. The YEAR the meteor fell to Earth\n"
           "3. QUIT")
 
 def print_output_results_prompt():
+    """ function for printing output prompt """
     print("How would you like to output the filter results?\n"
           "1. On screen (in terminal)\n"
           "2. To a TEXT file\n"

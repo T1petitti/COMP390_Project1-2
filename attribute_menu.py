@@ -1,3 +1,7 @@
+
+""" This class represents an attribute filter for meteor data. It is designed to handle different filter modes
+and provides a method to retrieve the filter label and index based on the selected mode."""
+
 class AttributeFilter:
     def __init__(self, filter_mode):
         self.filter_mode = filter_mode
